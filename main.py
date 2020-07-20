@@ -1,5 +1,6 @@
 import sympy
 import random
+import time
 
 def egcd(a, b):
     x,y, u,v = 0,1, 1,0
@@ -16,11 +17,9 @@ def mod_inverse(a, m):
     else:
         return x % m
 
-
-
 plaintext = input('Enter a Message : ')
 
-n = len(plaintext)
+m = int(input('Enter a positive integer m : '))
 
 ascii_values = []
 for c in plaintext:
@@ -29,8 +28,6 @@ print('ASCII values : ',ascii_values)
 
 q = sympy.prime(10*len(plaintext)+1)
 print('q = ',q)
-
-m = int(input('Enter a positive integer m : '))
 
 prime_list = []
 count = 0
@@ -44,6 +41,8 @@ while True:
         count += 1
 print('Primes : ',prime_list)
 
+t1 = time.time()
+
 cipher = []
 for c in range(len(plaintext)):
     cipher.append((ord(plaintext[c])*prime_list[c]) % (q**m))
@@ -53,3 +52,6 @@ lst = []
 for k in range(len(cipher)):
     lst.append((cipher[k] * mod_inverse(prime_list[k],q**m))%q**m)
 print('Decrypted : ' + ''.join(map(lambda x: chr(x), lst)))
+
+t2 = time.time()
+print('Runtime : ',t2-t1)

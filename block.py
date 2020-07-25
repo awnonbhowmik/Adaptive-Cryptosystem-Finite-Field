@@ -2,8 +2,6 @@ import sympy
 import random
 import time
 from scipy.special import lambertw
-from numpy import exp
-import sympy
 import numpy as np
 
 
@@ -94,7 +92,7 @@ num_blocks = len(ascii_chunks)
 print('No. of blocks = ',num_blocks)
 
 # Fixing the value of q based on blocksize using prime number theory
-n = exp(-lambertw(-1/blocksize,k=-1))
+n = np.exp(-lambertw(-1/blocksize,k=-1))
 n = int(n.real)
 q = sympy.ntheory.generate.nextprime(n,ith=1)
 print('Q = ',q)
@@ -116,7 +114,7 @@ print(prime_list_permutations)
 
 t1 = time.time()
 
-print('\n Encrypted : ')
+print('\nEncrypted : ')
 encrypted_cipher = []
 for chunk in range(len(ascii_chunks)):
     cipher = []

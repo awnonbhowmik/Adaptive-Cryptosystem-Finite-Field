@@ -46,7 +46,7 @@ def evolve_primes_list(sample,shift_factor):
 
 def calculate_blocksize(n):
     num = int(np.sqrt(n))
-    if num**2<n**2:
+    if num**2<n:
         return int(np.sqrt(num**2))
     else:
         return(-1)
@@ -62,8 +62,8 @@ def get_prime_list_permutations(prime_list,num_blocks):
     return primes_list_permutations
 
 
-# plaintext = input('Enter a Message : ')
-plaintext = 'abcdefghijklmnopqrstuvwxyz'*1000
+plaintext = input('Enter a Message : ')
+# plaintext = 'abcdefghijklmnopqrstuvwxyz'*1000
 blocksize = calculate_blocksize(len(plaintext))
 if blocksize%2 == 0:
     blocksize -= 1

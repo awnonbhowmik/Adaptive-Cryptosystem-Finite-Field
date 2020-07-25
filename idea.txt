@@ -40,3 +40,11 @@ Enter a positive integer m : 2
 problem is that we require blocksize=3 primes in prime_list but less than q=5, there are only 2 primes which fit this requirement(i.e 2 & 3)
 
 Extras: Awnon's crazy idea to leftshift left half and rightshift right half to introduce entropy. ONLY WORKS FOR ODD BLOCKSIZE.
+
+
+Private_key = {prime_list, shift_factor, blocksize, m}
+
+Benchmarks:
+
+1. stringlength(in powers of 10 for table) vs time (fix m with 7 values (2^0 to 2^6). VIBGYOR)
+2. m vs time for fixed stringlength (m in powers of 2 for table till 1024)

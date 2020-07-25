@@ -14,7 +14,7 @@ def egcd(a, b):
     return b, x, y
 
 def mod_inverse(a, m):
-    g, x, y = egcd(a, m)
+    g, x, _ = egcd(a, m)
     if g != 1:
         return None  
     else:
